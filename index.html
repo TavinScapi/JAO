@@ -1,1 +1,420 @@
-a
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz aniversário Neguin!!!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        body {
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1542407236-8a3f98a09e73') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 61, 26, 0.7);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            padding: 30px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #f7d417;
+            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            margin-bottom: 10px;
+            animation: swing 2s infinite alternate;
+        }
+
+        .age-badge {
+            background-color: #f7d417;
+            color: #000;
+            font-size: 2rem;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50%;
+            margin: 15px 0;
+            box-shadow: 0 0 20px #f7d417;
+            transform: rotate(-10deg);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1) rotate(-10deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(-10deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg);
+            }
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(-5deg);
+            }
+
+            100% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .monkey {
+            width: 150px;
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 10;
+        }
+
+        .monkey:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .monkey1 {
+            top: 20px;
+            left: 5%;
+        }
+
+        .monkey2 {
+            top: 20px;
+            right: 5%;
+        }
+
+        .dancing-monkeys {
+            width: 300px;
+            margin: 20px auto;
+            border-radius: 15px;
+            border: 3px solid #f7d417;
+            box-shadow: 0 0 20px rgba(247, 212, 23, 0.5);
+        }
+
+        .message {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            border: 3px dashed #f7d417;
+            backdrop-filter: blur(5px);
+        }
+
+        .message p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #f7d417;
+            font-weight: bold;
+            font-size: 1.7rem;
+        }
+
+        .cake-container {
+            position: relative;
+            margin: 40px auto;
+            width: 250px;
+            cursor: pointer;
+        }
+
+        .cake {
+            width: 100%;
+            transition: transform 0.3s;
+            z-index: 5;
+            position: relative;
+        }
+
+        .cake:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .banana {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2909/2909761.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .banana-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .age-badge {
+                font-size: 1.5rem;
+                padding: 8px 20px;
+            }
+
+            .monkey {
+                width: 120px;
+            }
+
+            .dancing-monkeys {
+                width: 250px;
+            }
+
+            .message p {
+                font-size: 1.2rem;
+            }
+
+            .cake-container {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .monkey {
+                width: 80px;
+                position: static;
+                display: block;
+                margin: 10px auto;
+            }
+
+            .dancing-monkeys {
+                width: 200px;
+            }
+
+            .message {
+                padding: 15px;
+            }
+
+            .message p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="banana-rain" id="bananaRain"></div>
+
+    <div class="container">
+        <header>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSydR_dnjtX9Dxux2xOGsft0BFm7WxxtXd8FA&s"
+                style="height: 200px; width: 200px;" alt="Macaco" class="monkey monkey1" onclick="throwBanana()">
+            <h1>JÃO NEGUIN</h1>
+            <div class="age-badge">18 ANOS!</div>
+            <img src="https://s5.static.brasilescola.uol.com.br/be/2021/02/macaco-aranha-de-cara-preta.jpg"
+                style="height: 200px; width: 200px;" alt="Macaco" class="monkey monkey2" onclick="throwBanana()">
+        </header>
+
+        <!-- GIF de macacos dançantes adicionado aqui -->
+        <img src="https://media1.tenor.com/m/vkrq2u-ZBqIAAAAd/monkey-dancing.gif" alt="Macacos dançantes"
+            class="dancing-monkeys">
+
+        <div class="message">
+            <p>🎉 <span class="highlight">O REI DOS MONKEY ESTÁ FAZENDO 18!</span> 🎉</p>
+            <p>Jão Neguin, você finalmente chegou na maioridade na selva dos macacos!</p>
+            <p>Que sua vida adulta seja tão incrível quanto você, cheia de aventuras, diversão e muitas bananas!</p>
+            <p>Do seu amigo Tavin 🐒🍌🌴<3< /p>
+        </div>
+
+        <div class="cake-container" onclick="startBananaStorm()">
+            <img src="https://www.frutag.com.br/login/produtos/aa7f5d6aa54d4e17365e62938b7ff1c1.png"
+                alt="Bolo de aniversário" class="cake">
+        </div>
+
+        <footer>
+            <p>© 2025 - 18 Anos de muita macacada</p>
+        </footer>
+    </div>
+
+    <audio id="happyBirthday" src="https://www.soundjay.com/human/sounds/happy-birthday-song-01.mp3"></audio>
+    <audio id="partySound" src="https://www.soundjay.com/misc/sounds/party-air-horn-01.mp3"></audio>
+
+    <script>
+        // Efeito de chuva de bananas
+        function throwBanana() {
+            const banana = document.createElement('div');
+            banana.className = 'banana';
+
+            // Posição aleatória no topo da tela
+            const startX = Math.random() * window.innerWidth;
+            banana.style.left = startX + 'px';
+            banana.style.top = '-50px';
+
+            // Tamanho aleatório
+            const size = Math.random() * 30 + 20;
+            banana.style.width = size + 'px';
+            banana.style.height = size + 'px';
+
+            // Rotação aleatória
+            banana.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+            // Adiciona ao container de chuva de bananas
+            document.getElementById('bananaRain').appendChild(banana);
+
+            // Animação de queda
+            let posY = -50;
+            const fall = setInterval(() => {
+                posY += 5;
+                banana.style.top = posY + 'px';
+
+                // Oscilação lateral
+                banana.style.left = startX + Math.sin(posY / 50) * 50 + 'px';
+
+                // Rotação durante a queda
+                banana.style.transform = `rotate(${posY * 2}deg)`;
+
+                // Remove quando sair da tela
+                if (posY > window.innerHeight) {
+                    clearInterval(fall);
+                    banana.remove();
+                }
+            }, 1000 / 60);
+        }
+
+        // Chuva intensa de bananas
+        function startBananaStorm() {
+            document.getElementById('happyBirthday').play();
+            document.getElementById('partySound').play();
+
+            // Cria muitas bananas
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    throwBanana();
+                }, i * 100);
+            }
+
+            // Adiciona macacos extras durante a tempestade
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createFlyingMonkey();
+                }, i * 500);
+            }
+        }
+
+        // Cria macacos voadores
+        function createFlyingMonkey() {
+            const monkey = document.createElement('img');
+            monkey.src = 'https://png.pngtree.com/png-clipart/20240701/original/pngtree-a-monkey-with-nose-and-picture-of-face-png-image_15458949.png';
+            monkey.style.position = 'fixed';
+            monkey.style.width = '80px';
+            monkey.style.left = Math.random() * window.innerWidth + 'px';
+            monkey.style.top = Math.random() * window.innerHeight + 'px';
+            monkey.style.zIndex = '1000';
+            monkey.style.cursor = 'pointer';
+            monkey.onclick = function () {
+                throwBanana();
+                this.remove();
+            };
+            document.body.appendChild(monkey);
+
+            // Animação do macaco
+            animateMonkey(monkey);
+
+            // Remove após algum tempo
+            setTimeout(() => {
+                monkey.remove();
+            }, 10000);
+        }
+
+        // Animação dos macacos voadores
+        function animateMonkey(monkey) {
+            let x = parseInt(monkey.style.left);
+            let y = parseInt(monkey.style.top);
+            let xSpeed = (Math.random() - 0.5) * 8;
+            let ySpeed = (Math.random() - 0.5) * 8;
+
+            function move() {
+                x += xSpeed;
+                y += ySpeed;
+
+                // Verifica limites da tela
+                if (x <= 0 || x >= window.innerWidth - 80) {
+                    xSpeed = -xSpeed;
+                    monkey.style.transform = `scaleX(${xSpeed > 0 ? 1 : -1})`;
+                }
+
+                if (y <= 0 || y >= window.innerHeight - 80) {
+                    ySpeed = -ySpeed;
+                }
+
+                monkey.style.left = x + 'px';
+                monkey.style.top = y + 'px';
+
+                if (monkey.parentNode) {
+                    requestAnimationFrame(move);
+                }
+            }
+
+            move();
+        }
+
+        // Inicia alguns macacos e bananas ao carregar
+        window.onload = function () {
+            // Algumas bananas iniciais
+            for (let i = 0; i < 5; i++) {
+                setTimeout(throwBanana, i * 800);
+            }
+
+            // Alguns macacos extras
+            for (let i = 0; i < 3; i++) {
+                setTimeout(createFlyingMonkey, i * 2000);
+            }
+        };
+    </script>
+</body>
+
+</html>
